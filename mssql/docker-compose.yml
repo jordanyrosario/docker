@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+    mssql:
+      build:
+          context: ./mssql
+          dockerfile: ./Dockerfile
+      ports:
+        - 1433:1433
+      environment:
+        ACCEPT_EULA: Y
+        SA_PASSWORD: "Str@ngP4ssw0r"
+        MSSQL_PID: Express
+        TZ: America/Santo_Domingo
+        MSSQL_DB: dev
+        MSSQL_USER: dev
+        MSSQL_PASSWORD: D3veloper0
+      volumes:
+        - ./db_data:/var/opt/mssql/data
+        - ./db_log:/var/opt/mssql/log
+  
+
